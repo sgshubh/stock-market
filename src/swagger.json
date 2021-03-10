@@ -1,0 +1,255 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "3.0.0",
+    "title": "Super Simple Stock",
+    "license": {
+      "name": "Super Simple Stock"
+    }
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/getInitialStocks": {
+      "get": {
+        "tags": [
+          "Stocks"
+        ],
+        "summary": "Get Initial Stocks.",
+        "description": "Get Initial Stocks.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Successful"
+          },
+          "404": {
+            "description": "Operation Failed"
+          }
+        }
+      }
+    },
+    "/priceHandler": {
+      "post": {
+        "tags": [
+          "Stocks"
+        ],
+        "summary": "Dividend Calculation",
+        "description": "Calculation is done according to input price.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "index",
+            "description": "Enter Index",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "price",
+            "description": "Enter Price value.",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Successful"
+          },
+          "404": {
+            "description": "Operation Failed"
+          }
+        }
+      }
+    },
+    "/updatedData": {
+      "get": {
+        "tags": [
+          "Stocks"
+        ],
+        "summary": "Get updated Stocks.",
+        "description": "Get updated Stocks.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Successful"
+          },
+          "404": {
+            "description": "Operation Failed"
+          }
+        }
+      }
+    },
+    "/getInitialTrades": {
+      "get": {
+        "tags": [
+          "Trade"
+        ],
+        "summary": "Get Initial Trade.",
+        "description": "Get Initial Trade.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Successful"
+          },
+          "404": {
+            "description": "Operation Failed"
+          }
+        }
+      }
+    },
+    "/createNewTrade": {
+      "post": {
+        "tags": [
+          "Trade"
+        ],
+        "summary": "Create New Trade.",
+        "description": "Create New Trade.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "stockSymbol",
+            "description": "Choose Stock Symbol",
+            "in": "formData",
+            "required": true,
+            "enum": [
+              "TEA",
+              "POP",
+              "ALE",
+              "GIN",
+              "JOE"
+            ],
+            "default": "-",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "description": "Enter Quantity.",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "action",
+            "description": "Choose Action.",
+            "in": "formData",
+            "required": true,
+            "enum": [
+              "BUY",
+              "SELL"
+            ],
+            "default": "-",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "description": "Enter Price value.",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Successful"
+          },
+          "404": {
+            "description": "Operation Failed"
+          }
+        }
+      }
+    },
+    "/updatedTrade": {
+      "get": {
+        "tags": [
+          "Trade"
+        ],
+        "summary": "Get updated Trade.",
+        "description": "Get updated Trade.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Successful"
+          },
+          "404": {
+            "description": "Operation Failed"
+          }
+        }
+      }
+    },
+    "/getMean": {
+      "get": {
+        "tags": [
+          "Geometric Mean"
+        ],
+        "summary": "Get Geometric Mean.",
+        "description": "Get Geometric Mean.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Successful"
+          },
+          "404": {
+            "description": "Operation Failed"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "authorization",
+      "in": "headers"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ]
+}
